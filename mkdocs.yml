@@ -1,0 +1,125 @@
+
+site_name: Kubernetes Documentation
+nav:
+  - Introduction:
+      - Overview: '00_Introduction/Overview/overview.md'
+      - Kubernetes_Architecture: '00_Introduction/Kubernetes_Architecture/kubernetes_architecture.md'
+      - Cluster_Components: '00_Introduction/Cluster_Components/cluster_components.md'
+      - Installation: '00_Introduction/Installation/installation.md'
+  - Core_Concepts:
+      - Pods: '01_Core_Concepts/Pods/pod_concepts.md'
+      - Namespaces: '01_Core_Concepts/Namespaces/namespaces.md'
+      - ReplicaSets: '01_Core_Concepts/ReplicaSets/replicasets.md'
+      - Deployments: '01_Core_Concepts/Deployments/deployments.md'
+      - Services: '01_Core_Concepts/Services/services.md'
+      - Endpoints: '01_Core_Concepts/Endpoints/endpoints.md'
+      - ConfigMaps: '01_Core_Concepts/ConfigMaps/configmaps.md'
+      - Secrets: '01_Core_Concepts/Secrets/secrets.md'
+      - Volumes: '01_Core_Concepts/Volumes/volumes.md'
+      - Persistent_Volumes: '01_Core_Concepts/Persistent_Volumes/persistent_volumes.md'
+      - Persistent_Volume_Claims: '01_Core_Concepts/Persistent_Volume_Claims/pvc.md'
+  - Workloads:
+      - StatefulSets: '02_Workloads/StatefulSets/statefulsets.md'
+      - DaemonSets: '02_Workloads/DaemonSets/daemonsets.md'
+      - Jobs: '02_Workloads/Jobs/jobs.md'
+      - CronJobs: '02_Workloads/CronJobs/cronjobs.md'
+      - ReplicaSet: '02_Workloads/ReplicaSet/replicaset.md'
+      - Deployments: '02_Workloads/Deployments/deployments_scaling.md'
+      - Pod_Disruption_Budgets: '02_Workloads/Pod_Disruption_Budgets/pdb.md'
+  - Networking:
+      - Networking_Concepts: '03_Networking/Networking_Concepts/networking_concepts.md'
+      - Services: '03_Networking/Services/services.md'
+      - Network_Policies: '03_Networking/Network_Policies/network_policies.md'
+      - Ingress: '03_Networking/Ingress/ingress.md'
+      - DNS: '03_Networking/DNS/dns.md'
+      - LoadBalancers: '03_Networking/LoadBalancers/loadbalancers.md'
+      - CNI_Container_Network_Interface: '03_Networking/CNI_Container_Network_Interface/cni.md'
+      - Service_Mesh: '03_Networking/Service_Mesh/service_mesh.md'
+  - Security:
+      - RBAC_Role_Based_Access_Control: '04_Security/RBAC_Role_Based_Access_Control/rbac.md'
+      - Service_Accounts: '04_Security/Service_Accounts/service_accounts.md'
+      - Network_Policies: '04_Security/Network_Policies/network_security.md'
+      - Pod_Security_Policies: '04_Security/Pod_Security_Policies/pod_security.md'
+      - Security_Context: '04_Security/Security_Context/security_context.md'
+      - Secrets_Management: '04_Security/Secrets_Management/secrets_management.md'
+  - Storage:
+      - Volumes: '05_Storage/Volumes/volumes.md'
+      - Persistent_Volumes: '05_Storage/Persistent_Volumes/persistent_volumes.md'
+      - StatefulSets: '05_Storage/StatefulSets/statefulsets_storage.md'
+      - Storage_Classes: '05_Storage/Storage_Classes/storage_classes.md'
+      - Dynamic_Provisioning: '05_Storage/Dynamic_Provisioning/dynamic_provisioning.md'
+  - Cluster_Management:
+      - Cluster_Setup: '06_Cluster_Management/Cluster_Setup/cluster_setup.md'
+      - kubectl_CLI: '06_Cluster_Management/kubectl_CLI/kubectl.md'
+      - Kubeadm: '06_Cluster_Management/Kubeadm/kubeadm.md'
+      - Managing_Nodes: '06_Cluster_Management/Managing_Nodes/node_management.md'
+      - Node_Pools: '06_Cluster_Management/Node_Pools/node_pools.md'
+      - Cluster_Autoscaler: '06_Cluster_Management/Cluster_Autoscaler/cluster_autoscaler.md'
+      - High_Availability_Setup: '06_Cluster_Management/High_Availability_Setup/high_availability.md'
+  - Advanced_Topics:
+      - Helm: '07_Advanced_Topics/Helm/helm.md'
+      - Operators: '07_Advanced_Topics/Operators/operators.md'
+      - Custom_Resources: '07_Advanced_Topics/Custom_Resources/custom_resources.md'
+      - API_Aggregation_Layer: '07_Advanced_Topics/API_Aggregation_Layer/api_aggregation.md'
+      - Horizontal_Pod_Autoscaling: '07_Advanced_Topics/Horizontal_Pod_Autoscaling/horizontal_pod_autoscaling.md'
+      - Vertical_Pod_Autoscaling: '07_Advanced_Topics/Vertical_Pod_Autoscaling/vertical_pod_autoscaling.md'
+      - Kubernetes_Federation: '07_Advanced_Topics/Kubernetes_Federation/federation.md'
+  - Monitoring_and_Logging:
+      - Prometheus: '08_Monitoring_and_Logging/Prometheus/prometheus.md'
+      - Grafana: '08_Monitoring_and_Logging/Grafana/grafana.md'
+      - ELK_Stack: '08_Monitoring_and_Logging/ELK_Stack/elk_stack.md'
+      - Fluentd: '08_Monitoring_and_Logging/Fluentd/fluentd.md'
+      - Monitoring_Tools: '08_Monitoring_and_Logging/Monitoring_Tools/monitoring_tools.md'
+    - Storage:
+      - Volumes: '05_Storage/Volumes/volumes.md'
+      - Persistent_Volumes: '05_Storage/Persistent_Volumes/persistent_volumes.md'
+      - StatefulSets: '05_Storage/StatefulSets/statefulsets_storage.md'
+      - Storage_Classes: '05_Storage/Storage_Classes/storage_classes.md'
+      - Dynamic_Provisioning: '05_Storage/Dynamic_Provisioning/dynamic_provisioning.md'
+  - Cluster_Management:
+      - Cluster_Setup: '06_Cluster_Management/Cluster_Setup/cluster_setup.md'
+      - kubectl_CLI: '06_Cluster_Management/kubectl_CLI/kubectl.md'
+      - Kubeadm: '06_Cluster_Management/Kubeadm/kubeadm.md'
+      - Managing_Nodes: '06_Cluster_Management/Managing_Nodes/node_management.md'
+      - Node_Pools: '06_Cluster_Management/Node_Pools/node_pools.md'
+      - Cluster_Autoscaler: '06_Cluster_Management/Cluster_Autoscaler/cluster_autoscaler.md'
+      - High_Availability_Setup: '06_Cluster_Management/High_Availability_Setup/high_availability.md'
+  - Advanced_Topics:
+      - Helm: '07_Advanced_Topics/Helm/helm.md'
+      - Operators: '07_Advanced_Topics/Operators/operators.md'
+      - Custom_Resources: '07_Advanced_Topics/Custom_Resources/custom_resources.md'
+      - API_Aggregation_Layer: '07_Advanced_Topics/API_Aggregation_Layer/api_aggregation.md'
+      - Horizontal_Pod_Autoscaling: '07_Advanced_Topics/Horizontal_Pod_Autoscaling/horizontal_pod_autoscaling.md'
+      - Vertical_Pod_Autoscaling: '07_Advanced_Topics/Vertical_Pod_Autoscaling/vertical_pod_autoscaling.md'
+      - Kubernetes_Federation: '07_Advanced_Topics/Kubernetes_Federation/federation.md'
+  - Monitoring_and_Logging:
+      - Prometheus: '08_Monitoring_and_Logging/Prometheus/prometheus.md'
+      - Grafana: '08_Monitoring_and_Logging/Grafana/grafana.md'
+      - ELK_Stack: '08_Monitoring_and_Logging/ELK_Stack/elk_stack.md'
+      - Fluentd: '08_Monitoring_and_Logging/Fluentd/fluentd.md'
+      - Monitoring_Tools: '08_Monitoring_and_Logging/Monitoring_Tools/monitoring_tools.md'
+  - Troubleshooting:
+      - Debugging_Pods: '09_Troubleshooting/Debugging_Pods/pod_debugging.md'
+      - Logs_and_Events: '09_Troubleshooting/Logs_and_Events/logs_events.md'
+      - Common_Issues: '09_Troubleshooting/Common_Issues/common_issues.md'
+  - CI_CD:
+      - Jenkins: '10_CI_CD/Jenkins/jenkins_kubernetes.md'
+      - GitLab_CI: '10_CI_CD/GitLab_CI/gitlab_ci.md'
+  - Cloud_Integrations:
+      - AWS: '11_Cloud_Integrations/AWS/aws_kubernetes.md'
+      - Azure: '11_Cloud_Integrations/Azure/azure_kubernetes.md'
+      - Google_Cloud: '11_Cloud_Integrations/Google_Cloud/google_cloud_kubernetes.md'
+  - Future_Trends_and_Community:
+      - Future_Trends: '12_Future_Trends_and_Community/Future_Trends/future_trends.md'
+      - Community_Resources: '12_Future_Trends_and_Community/Community_Resources/community_resources.md'
+      - Contributors: '12_Future_Trends_and_Community/Contributors/contributors.md'
+  - Resources:
+      - Books: '13_Resources/Books/books.md'
+      - Websites: '13_Resources/Websites/websites.md'
+      - Courses: '13_Resources/Courses/courses.md'
+
+theme:
+  name: 'material'
+
+  
+    
