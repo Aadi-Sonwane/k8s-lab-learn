@@ -1,37 +1,106 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy MkDocs Site to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # This triggers the workflow on pushes to the `main` branch
+      - main  # Trigger on any push to the main branch (including new files/folders, and deletions)
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          ref: main  # Work with the main branch
 
-      # Set up Python
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
-      # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install mkdocs ghp-import
 
-      # Build the MkDocs site
-      - name: Build MkDocs site
+      - name: Detect new or deleted markdown files and update mkdocs.yml
+        run: |
+          MKDOCS_CONFIG="mkdocs.yml"
+
+          # Check if mkdocs.yml exists
+          if [ ! -f "$MKDOCS_CONFIG" ]; then
+            echo "Error: mkdocs.yml not found."
+            exit 1
+          fi
+
+          # Fetch the existing nav section from mkdocs.yml
+          NAV_SECTION=$(grep -A 1000 'nav:' $MKDOCS_CONFIG | tail -n +2)
+
+          # Initialize variables to track changes
+          NEW_FILES=""
+          DELETED_FILES=""
+          
+          # Loop through the docs directory to find new .md files and folders
+          for md_file in $(find docs -name "*.md"); do
+            RELATIVE_PATH=${md_file#docs/}
+            FILE_NAME=${RELATIVE_PATH%.md}
+
+            # Check if the file is already in the nav section
+            if ! grep -q "$FILE_NAME" <<< "$NAV_SECTION"; then
+              NEW_FILES="$NEW_FILES
+              - $FILE_NAME: $RELATIVE_PATH"
+            fi
+          done
+
+          # Check for deleted .md files by comparing the current state of the docs directory with the last known state
+          DELETED_FILES=$(git diff --name-status HEAD~1..HEAD | grep '^D' | grep 'docs/' | awk '{print $2}')
+
+          # Remove deleted files from the nav section of mkdocs.yml
+          for deleted_file in $DELETED_FILES; do
+            FILE_NAME=${deleted_file#docs/}
+            FILE_NAME=${FILE_NAME%.md}
+            NAV_SECTION=$(echo "$NAV_SECTION" | grep -v "$FILE_NAME")
+          done
+
+          # If there are any new files or deletions, update mkdocs.yml
+          if [ -n "$NEW_FILES" ] || [ -n "$DELETED_FILES" ]; then
+            echo "Updating mkdocs.yml to reflect new/deleted files..."
+
+            # Add new files to mkdocs.yml's nav section
+            if [ -n "$NEW_FILES" ]; then
+              sed -i "/nav:/a $NEW_FILES" $MKDOCS_CONFIG
+            fi
+
+            # Remove deleted files from mkdocs.yml's nav section
+            if [ -n "$DELETED_FILES" ]; then
+              echo "$NAV_SECTION" > $MKDOCS_CONFIG
+            fi
+
+            # Commit changes to mkdocs.yml
+            git add $MKDOCS_CONFIG
+            git commit -m "Automatically update mkdocs.yml with new/deleted files"
+          fi
+
+      - name: Build the MkDocs site
         run: mkdocs build
 
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        run: ghp-import -n -p -f site
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        run: |
+          # Checkout gh-pages branch
+          git fetch origin gh-pages
+          git checkout gh-pages || git checkout --orphan gh-pages
+          
+          # Remove any existing files in gh-pages branch
+          rm -rf *
+          
+          # Copy the new build files from the site directory to gh-pages branch
+          cp -r ../site/* .
+          
+          # Commit and push changes to gh-pages
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update site from main branch"
+          git push origin gh-pages || echo "No changes to push"
