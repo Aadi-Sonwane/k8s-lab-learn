@@ -41,7 +41,7 @@ jobs:
           # Initialize variables to track changes
           NEW_FILES=""
           DELETED_FILES=""
-          
+
           # Loop through the docs directory to find new .md files and folders
           for md_file in $(find docs -name "*.md"); do
             RELATIVE_PATH=${md_file#docs/}
@@ -54,8 +54,12 @@ jobs:
             fi
           done
 
-          # Check for deleted .md files by comparing the current state of the docs directory with the last known state
-          DELETED_FILES=$(git diff --name-status HEAD~1..HEAD | grep '^D' | grep 'docs/' | awk '{print $2}')
+          # Handle the case when there is no previous commit history (for the first run)
+          if git rev-parse --is-inside-work-tree; then
+            DELETED_FILES=$(git diff --name-status HEAD^..HEAD | grep '^D' | grep 'docs/' | awk '{print $2}')
+          else
+            DELETED_FILES=""
+          fi
 
           # Remove deleted files from the nav section of mkdocs.yml
           for deleted_file in $DELETED_FILES; do
@@ -70,7 +74,7 @@ jobs:
 
             # Add new files to mkdocs.yml's nav section
             if [ -n "$NEW_FILES" ]; then
-              sed -i "/nav:/a $NEW_FILES" $MKDOCS_CONFIG
+              echo "$NEW_FILES" >> $MKDOCS_CONFIG
             fi
 
             # Remove deleted files from mkdocs.yml's nav section
