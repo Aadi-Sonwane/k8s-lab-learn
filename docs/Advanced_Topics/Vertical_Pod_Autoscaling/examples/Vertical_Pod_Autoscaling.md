@@ -1,0 +1,1 @@
+### Vertical_Pod_Autoscaling.md - Placeholder Content
