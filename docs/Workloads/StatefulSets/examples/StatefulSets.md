@@ -1,0 +1,1 @@
+### StatefulSets.md - Placeholder Content

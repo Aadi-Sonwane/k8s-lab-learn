@@ -1,0 +1,94 @@
+site_name: Kubernetes Documentation
+site_url: https://your-site-url.com
+theme:
+    name: 'material'
+nav:
+    - Home: index.md
+    - Introduction:
+        - Cluster_Components: Introduction/Cluster_Components/examples/Cluster_Components.md
+        - Installation: Introduction/Installation/examples/Installation.md
+        - Kubernetes_Architecture: Introduction/Kubernetes_Architecture/examples/Kubernetes_Architecture.md
+        - Overview: Introduction/Overview/examples/Overview.md
+    - Core_Concepts:
+        - ConfigMaps: Core_Concepts/ConfigMaps/examples/ConfigMaps.md
+        - Deployments: Core_Concepts/Deployments/examples/Deployments.md
+        - Endpoints: Core_Concepts/Endpoints/examples/Endpoints.md
+        - Namespaces: Core_Concepts/Namespaces/examples/Namespaces.md
+        - Persistent_Volumes: Core_Concepts/Persistent_Volumes/examples/Persistent_Volumes.md
+        - Persistent_Volume_Claims: Core_Concepts/Persistent_Volume_Claims/examples/Persistent_Volume_Claims.md
+        - Pods: Core_Concepts/Pods/examples/Pods.md
+        - ReplicaSets: Core_Concepts/ReplicaSets/examples/ReplicaSets.md
+        - Secrets: Core_Concepts/Secrets/examples/Secrets.md
+        - Services: Core_Concepts/Services/examples/Services.md
+        - Volumes: Core_Concepts/Volumes/examples/Volumes.md
+    - Workloads:
+        - CronJobs: Workloads/CronJobs/examples/CronJobs.md
+        - DaemonSets: Workloads/DaemonSets/examples/DaemonSets.md
+        - Deployments: Workloads/Deployments/examples/Deployments.md
+        - Jobs: Workloads/Jobs/examples/Jobs.md
+        - Pod_Disruption_Budgets: Workloads/Pod_Disruption_Budgets/examples/Pod_Disruption_Budgets.md
+        - ReplicaSet: Workloads/ReplicaSet/examples/ReplicaSet.md
+        - StatefulSets: Workloads/StatefulSets/examples/StatefulSets.md
+    - Networking:
+        - CNI_Container_Network_Interface: Networking/CNI_Container_Network_Interface/examples/CNI_Container_Network_Interface.md
+        - DNS: Networking/DNS/examples/DNS.md
+        - Ingress: Networking/Ingress/examples/Ingress.md
+        - LoadBalancers: Networking/LoadBalancers/examples/LoadBalancers.md
+        - Networking_Concepts: Networking/Networking_Concepts/examples/Networking_Concepts.md
+        - Network_Policies: Networking/Network_Policies/examples/Network_Policies.md
+        - Services: Networking/Services/examples/Services.md
+        - Service_Mesh: Networking/Service_Mesh/examples/Service_Mesh.md
+    - Security:
+        - Network_Policies: Security/Network_Policies/examples/Network_Policies.md
+        - Pod_Security_Policies: Security/Pod_Security_Policies/examples/Pod_Security_Policies.md
+        - RBAC_Role_Based_Access_Control: Security/RBAC_Role_Based_Access_Control/examples/RBAC_Role_Based_Access_Control.md
+        - Secrets_Management: Security/Secrets_Management/examples/Secrets_Management.md
+        - Security_Context: Security/Security_Context/examples/Security_Context.md
+        - Service_Accounts: Security/Service_Accounts/examples/Service_Accounts.md
+    - Storage:
+        - Dynamic_Provisioning: Storage/Dynamic_Provisioning/examples/Dynamic_Provisioning.md
+        - Persistent_Volumes: Storage/Persistent_Volumes/examples/Persistent_Volumes.md
+        - StatefulSets: Storage/StatefulSets/examples/StatefulSets.md
+        - Storage_Classes: Storage/Storage_Classes/examples/Storage_Classes.md
+        - Volumes: Storage/Volumes/examples/Volumes.md
+    - Cluster_Management:
+        - Cluster_Autoscaler: Cluster_Management/Cluster_Autoscaler/examples/Cluster_Autoscaler.md
+        - Cluster_Setup: Cluster_Management/Cluster_Setup/examples/Cluster_Setup.md
+        - High_Availability_Setup: Cluster_Management/High_Availability_Setup/examples/High_Availability_Setup.md
+        - Kubeadm: Cluster_Management/Kubeadm/examples/Kubeadm.md
+        - kubectl_CLI: Cluster_Management/kubectl_CLI/examples/kubectl_CLI.md
+        - Managing_Nodes: Cluster_Management/Managing_Nodes/examples/Managing_Nodes.md
+        - Node_Pools: Cluster_Management/Node_Pools/examples/Node_Pools.md
+    - Advanced_Topics:
+        - API_Aggregation_Layer: Advanced_Topics/API_Aggregation_Layer/examples/API_Aggregation_Layer.md
+        - Custom_Resources: Advanced_Topics/Custom_Resources/examples/Custom_Resources.md
+        - Helm: Advanced_Topics/Helm/examples/Helm.md
+        - Horizontal_Pod_Autoscaling: Advanced_Topics/Horizontal_Pod_Autoscaling/examples/Horizontal_Pod_Autoscaling.md
+        - Kubernetes_Federation: Advanced_Topics/Kubernetes_Federation/examples/Kubernetes_Federation.md
+        - Operators: Advanced_Topics/Operators/examples/Operators.md
+        - Vertical_Pod_Autoscaling: Advanced_Topics/Vertical_Pod_Autoscaling/examples/Vertical_Pod_Autoscaling.md
+    - Monitoring_and_Logging:
+        - ELK_Stack: Monitoring_and_Logging/ELK_Stack/examples/ELK_Stack.md
+        - Fluentd: Monitoring_and_Logging/Fluentd/examples/Fluentd.md
+        - Grafana: Monitoring_and_Logging/Grafana/examples/Grafana.md
+        - Monitoring_Tools: Monitoring_and_Logging/Monitoring_Tools/examples/Monitoring_Tools.md
+        - Prometheus: Monitoring_and_Logging/Prometheus/examples/Prometheus.md
+    - Troubleshooting:
+        - Common_Issues: Troubleshooting/Common_Issues/examples/Common_Issues.md
+        - Debugging_Pods: Troubleshooting/Debugging_Pods/examples/Debugging_Pods.md
+        - Logs_and_Events: Troubleshooting/Logs_and_Events/examples/Logs_and_Events.md
+    - CI_CD:
+        - GitLab_CI: CI_CD/GitLab_CI/examples/GitLab_CI.md
+        - Jenkins: CI_CD/Jenkins/examples/Jenkins.md
+    - Cloud_Integrations:
+        - AWS: Cloud_Integrations/AWS/examples/AWS.md
+        - Azure: Cloud_Integrations/Azure/examples/Azure.md
+        - Google_Cloud: Cloud_Integrations/Google_Cloud/examples/Google_Cloud.md
+    - Future_Trends_and_Community:
+        - Community_Resources: Future_Trends_and_Community/Community_Resources/examples/Community_Resources.md
+        - Contributors: Future_Trends_and_Community/Contributors/examples/Contributors.md
+        - Future_Trends: Future_Trends_and_Community/Future_Trends/examples/Future_Trends.md
+    - Resources:
+        - Books: Resources/Books/examples/Books.md
+        - Courses: Resources/Courses/examples/Courses.md
+        - Websites: Resources/Websites/examples/Websites.md
