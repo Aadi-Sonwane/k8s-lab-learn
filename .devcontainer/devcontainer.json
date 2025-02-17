@@ -1,0 +1,16 @@
+{
+  "name": "Kubernetes Lab",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "docker-in-docker": "latest",
+    "kubectl": "latest",
+    "kind": "latest",
+    "helm": "latest"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-kubernetes-tools.vscode-kubernetes-tools"]
+    }
+  },
+  "postCreateCommand": "kind create cluster --name my-cluster"
+}
